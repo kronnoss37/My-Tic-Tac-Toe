@@ -1,0 +1,181 @@
+/* Font and vars */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;  
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f2f6ff;
+  color: #23304a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 100vh;
+}
+
+.header, .footer {
+  height: 90px;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  display: flex;
+}
+
+.main > .container {
+  display: flex;
+}
+
+.header {
+  background-color: #b9dbf6;
+  box-shadow: 0px 2px 20px #a3a3a3;
+  color: #ffffff;
+
+  display: flex;
+}
+
+.navigation {
+  padding: 15px;
+
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.start-game {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game_button {
+  border-radius: 10px;
+  
+  padding: 20px 30px;
+  font-size: 26px;
+  font-weight: bold;
+
+  background-color: #FFD700;
+}
+
+.start-game_button:hover {
+   background-color: #ffe75d;
+}
+
+.game {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 54px;
+  font-weight: 700;
+  margin-bottom: 40px;
+
+  color: #2a21ac;
+}
+
+.game-field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px #d9e7ff;
+
+  font-size: 25px;
+}
+
+.game-cell {
+  width: 110px;
+  aspect-ratio: 1;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  background-color: #e8f0ff;
+  border: 2px solid #c8d6ef;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-cell:hover {
+  transform: translateY(-3px);
+  background-color: #d9e7ff;
+  box-shadow: 0px 0px 20px #99beff; 
+}
+
+.disabledDiv {
+  /* pointer-events: none; */
+  cursor: not-allowed;
+}
+
+.game-cell.disabledDiv:hover {
+  transform: translateY(0px);
+  background-color: #e8f0ff;
+  box-shadow: 0px 0px 0px; 
+}
+
+.game-cell__x {
+  color: #e64980;
+}
+
+.game-cell__o {
+  color: #4c6ef5;
+}
