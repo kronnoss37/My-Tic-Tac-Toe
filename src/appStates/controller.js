@@ -1,4 +1,3 @@
-export default (watchedState, elements) => {
-  const { mainContainer, gameField } = elements;
+export default (watchedState) => {
   watchedState.pageStatus = 'start';
 };
