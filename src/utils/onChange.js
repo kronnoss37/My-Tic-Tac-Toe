@@ -15,22 +15,10 @@ const onChange = (state, callback) => {
     const proxy =
       new Proxy(currentState, {
         get: (target, prop, receiver) => {
-          // console.log('Getting...');
-          // console.log('target', target);
-          // console.log('prop', prop);
-          // console.log('receiver', receiver);
 
           const currentPath = getRightPath(path, target, prop);
 
           const value = target[prop]
-
-          // if (prop === 'push') {
-          //   return (...args) => {
-          //     const result = value.apply(target, args)
-          //     callback(path, target);
-          //     return result;
-          //   }
-          // }
  
           if (typeof value === 'object' && value !== null) {
             return iter(value, currentPath);
@@ -38,15 +26,11 @@ const onChange = (state, callback) => {
           return value;
         },
         set: (target, prop, value, receiver) => {
-          // console.log('Setting...');
-          // const hasProperty = Reflect.has(target, prop, receiver);
-          // console.log('hasProperty', hasProperty);
-          // if (!hasProperty) throw new Error(`Error: Property "${prop}" doesn't exist...`);
 
           const currentPath = getRightPath(path, target, prop);
 
           const oldValue = target[prop];
-          target[prop] = value; // в чем отличие от Reflect?
+          target[prop] = value;
           callback(currentPath, value, oldValue);
 
           return true;
